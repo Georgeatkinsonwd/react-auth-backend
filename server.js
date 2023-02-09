@@ -9,9 +9,14 @@ const homeRoutes = require('./routes/homeRoutes')
 
 connectDB()
 
+const corsConfig = {
+    origin: '*',
+    credentials: true,
+  };
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors())
+app.use(cors(corsConfig))
 
 app.use('/', homeRoutes)
 
